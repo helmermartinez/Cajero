@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/estilos.css">
+  <title>ATM</title>
+</head>
+<body>
+
+  <!-------------------------------------------------------
+    ---------------LOGIN-----------------------------------
+    --------------------------------------------------->
+  <div class="tab"  id="back">
+    <div class="leftb">
+    <input type="button" class="selec" value="►"><br>
+    <input type="button" class="selec"  value="►"><br>
+    <input type="button" class="selec"  value="►"><br>
+    </div>
+    <div class="rightb">
+    <input type="button" class="selec"  value="◄"><br>
+    <input type="button" class="selec"  value="◄"><br>
+    <input type="button" class="selec"  value="◄"><br> 
+    </div>
+  <section id="front"> 
+  <h2>¡Bienvenido al Banco!</h2><br>
+  <h1>Porfavor digite su clave de 8 digitos</h1><br>
+  <input type="password" name="clave" id="idclave" maxlength="8">
+  </section>
+
+  <div id="number">
+    <input type="button" class="numbers"  value="1">
+    <input type="button" class="numbers"  value="2">
+    <input type="button" class="numbers"  value="3"><br>
+    <input type="button" class="numbers"  value="4">
+    <input type="button" class="numbers"  value="5">
+    <input type="button" class="numbers"  value="6"><br>
+    <input type="button" class="numbers"  value="7">
+    <input type="button" class="numbers"  value="8">
+    <input type="button" class="numbers"  value="9"><br>
+    <input type="button" class="numbers"  value="  ">
+    <input type="button" class="numbers"  value="0">
+    <input type="button" class="numbers"  value=". ">
+
+  </div>
+  <div id="opera">
+    <input type="button" class="operacion"  value="CANCEL" id="cancel"><br>
+    <input type="button" class="operacion"  value="CLEAR" id="clear"><br>
+    <input type="button" class="operacion"  value="OK" id="ok" onclick="login()"><br>
+    <input type="button" class="operacion"  value="" id="none">
+  </div>
+
+  <div id="acti">
+    <p id="card">CARD </p>
+    <code class="example">
+      <hr color="363636">
+    </code>
+    <p id="nesio">RECEIPT</p>
+    <code class="example3">
+      <hr color="363636">
+    </code>
+    <p id="receipt">CASH  </p>
+    <code class="example2">
+      <hr color="363636">
+    </code>
+    <p id="depo ">DEPOSIT</p>
+    <code class="example2">
+      <hr color="363636">
+    </code>
+    
+  </div>
+  </div>
+<!--------------------------------------
+----------END LOGIN--------------------
+---------------------------------------->
+
+<!--------------------------------------
+----------SELECT MENU--------------------
+---------------------------------------->
+<div class="tab"  id="back2" style="display: none;">
+  <div class="leftb">
+  <input type="button" class="selec" value="►" id="btnretiro" onclick="retiro()"><br>
+  <input type="button" class="selec"  value="►"><br>
+  <input type="button" class="selec"  value="►"><br>
+  </div>
+  <div class="rightb">
+  <input type="button" class="selec"  value="◄"><br>
+  <input type="button" class="selec"  value="◄"><br>
+  <input type="button" class="selec"  value="◄"><br> 
+  </div>
+  <section id="front"> 
+    <h2>MENU PRINCIPAL</h2><br><br>
+  <div id="menuleft">
+  <h1>►RETIRO</h1><br>
+  <h1>►CONSULTA</h1><br>
+  <h1>►OPERACIONES</h1><br>
+  </div>
+  <div id="menuright">
+    <h1>TRANFERENCIA◄</h1><br>
+    <h1>CONSULTA◄</h1><br>
+    <h1>ULTIMOS ◄</br>MOVIMENTOS</h1><br>
+      </div>
+    
+  </section>
+
+  <div id="number">
+  <input type="button" class="numbers"  value="1">
+  <input type="button" class="numbers"  value="2">
+  <input type="button" class="numbers"  value="3"><br>
+  <input type="button" class="numbers"  value="4">
+  <input type="button" class="numbers"  value="5">
+  <input type="button" class="numbers"  value="6"><br>
+  <input type="button" class="numbers"  value="7">
+  <input type="button" class="numbers"  value="8">
+  <input type="button" class="numbers"  value="9"><br>
+  <input type="button" class="numbers"  value="  ">
+  <input type="button" class="numbers"  value="0">
+  <input type="button" class="numbers"  value=". ">
+
+  </div>
+  <div id="opera">
+    <input type="button" class="operacion"  value="CANCEL" id="cancel" onclick="cancelada1()"><br>
+  <input type="button" class="operacion"  value="CLEAR" id="clear"><br>
+  <input type="button" class="operacion"  value="OK" id="ok"><br>
+  <input type="button" class="operacion"  value="" id="none">
+  </div>
+
+  <div id="acti">
+  <p id="card">CARD </p>
+  <code class="example">
+    <hr color="363636">
+  </code>
+  <p id="nesio">RECEIPT</p>
+  <code class="example3">
+    <hr color="363636">
+  </code>
+  <p id="receipt">CASH  </p>
+  <code class="example2">
+    <hr color="363636">
+  </code>
+  <p id="depo ">DEPOSIT</p>
+  <code class="example2">
+    <hr color="363636">
+  </code>
+  
+  </div>
+</div>
+
+<!--------------------------------------
+----------END MENU--------------------
+---------------------------------------->
+
+<!--------------------------------------
+----------SELECT RETIRO--------------------
+---------------------------------------->
+<div class="tab"  id="tabretiro" style="display: none;">
+  <div class="leftb">
+  <input type="button" class="selec" value="►" id="btnmonto" onclick="monto()"><br>
+  <input type="button" class="selec"  value="►"><br>
+  <input type="button" class="selec"  value="►"><br>
+  </div>
+  <div class="rightb">
+  <input type="button" class="selec"  value="◄"><br>
+  <input type="button" class="selec"  value="◄"><br>
+  <input type="button" class="selec"  value="◄" onclick="cancelada2()"><br> 
+  </div>
+  <section id="front"> 
+    <h2>RETIRO</h2><br><br>
+  <div id="menuleft">
+  <h1>►RETIRO SOLES</h1><br>
+  <h1>►</h1><br>
+  <h1>►</h1><br>
+  </div>
+  <div id="menuright">
+    <h1>RETIRO SOLES◄</h1><br>
+    <h1>◄</h1><br>
+    <h1>CANCELAR◄</h1><br>
+      </div>
+    
+  </section>
+
+  <div id="number">
+  <input type="button" class="numbers"  value="1">
+  <input type="button" class="numbers"  value="2">
+  <input type="button" class="numbers"  value="3"><br>
+  <input type="button" class="numbers"  value="4">
+  <input type="button" class="numbers"  value="5">
+  <input type="button" class="numbers"  value="6"><br>
+  <input type="button" class="numbers"  value="7">
+  <input type="button" class="numbers"  value="8">
+  <input type="button" class="numbers"  value="9"><br>
+  <input type="button" class="numbers"  value="  ">
+  <input type="button" class="numbers"  value="0">
+  <input type="button" class="numbers"  value=". ">
+
+  </div>
+  <div id="opera">
+  <input type="button" class="operacion"  value="CANCEL" id="cancel" onclick="cancelada2()"><br>
+  <input type="button" class="operacion"  value="CLEAR" id="clear"><br>
+  <input type="button" class="operacion"  value="OK" id="ok"><br>
+  <input type="button" class="operacion"  value="" id="none">
+  </div>
+
+  <div id="acti">
+  <p id="card">CARD </p>
+  <code class="example">
+    <hr color="363636">
+  </code>
+  <p id="nesio">RECEIPT</p>
+  <code class="example3">
+    <hr color="363636">
+  </code>
+  <p id="receipt">CASH  </p>
+  <code class="example2">
+    <hr color="363636">
+  </code>
+  <p id="depo ">DEPOSIT</p>
+  <code class="example2">
+    <hr color="363636">
+  </code>
+  
+  </div>
+</div>
+
+<!--------------------------------------
+----------END RETIRO--------------------
+---------------------------------------->
+
+<!--------------------------------------
+----------SELECT MONTO--------------------
+---------------------------------------->
+<div class="tab" id="tabmonto"  style="display: none;">
+  <div class="leftb">
+  <input type="button" class="selec" value="►"><br>
+  <input type="button" class="selec"  value="►"><br>
+  <input type="button" class="selec"  value="►"><br>
+  <input type="button" class="selec"  value="►"><br>
+  </div>
+  <div class="rightb">
+  <input type="button" class="selec"  value="◄"><br>
+  <input type="button" class="selec"  value="◄"><br>
+  <input type="button" class="selec" value="►" id="btnmonto" onclick="otras()"><br> 
+  <input type="button" class="selec"  value="◄" onclick="cancelada3()"><br> 
+  </div>
+  <section id="front"> 
+    <h2>RETIRO</h2><br><br>
+  <div id="menuleft">
+  <h1>►S/.20</h1><br>
+  <h1>►S/.150</h1><br>
+  <h1>►S/.300</h1><br>
+  <h1>►</h1><br>
+  </div>
+  <div id="menuright1">
+    <h1>S/.100◄</h1><br>
+    <h1>S/.200◄</h1><br>
+    <h1>OTRAS CANTIDADES◄</h1><br>
+    <h1>CANCELAR◄</h1><br>
+      </div>
+    
+  </section>
+
+  <div id="number">
+  <input type="button" class="numbers"  value="1">
+  <input type="button" class="numbers"  value="2">
+  <input type="button" class="numbers"  value="3"><br>
+  <input type="button" class="numbers"  value="4">
+  <input type="button" class="numbers"  value="5">
+  <input type="button" class="numbers"  value="6"><br>
+  <input type="button" class="numbers"  value="7">
+  <input type="button" class="numbers"  value="8">
+  <input type="button" class="numbers"  value="9"><br>
+  <input type="button" class="numbers"  value="  ">
+  <input type="button" class="numbers"  value="0">
+  <input type="button" class="numbers"  value=". ">
+
+  </div>
+  <div id="opera">
+    <input type="button" class="operacion"  value="CANCEL" id="cancel" onclick="cancelada3()"><br>
+  <input type="button" class="operacion"  value="CLEAR" id="clear"><br>
+  <input type="button" class="operacion"  value="OK" id="ok" ><br>
+  <input type="button" class="operacion"  value="" id="none">
+  </div>
+
+  <div id="acti">
+  <p id="card">CARD </p>
+  <code class="example">
+    <hr color="363636">
+  </code>
+  <p id="nesio">RECEIPT</p>
+  <code class="example3">
+    <hr color="363636">
+  </code>
+  <p id="receipt">CASH  </p>
+  <code class="example2">
+    <hr color="363636">
+  </code>
+  <p id="depo ">DEPOSIT</p>
+  <code class="example2">
+    <hr color="363636">
+  </code>
+  
+  </div>
+</div>
+
+<!--------------------------------------
+----------END MONTO--------------------
+---------------------------------------->
+
+<!--------------------------------------
+----------SELECT OTRAS--------------------
+---------------------------------------->
+<div class="tab"  id="tabotras" style="display: none;">
+  <div class="leftb1">
+  <input type="button" class="selec" value="►"><br>
+  <input type="button" class="selec"  value="►"><br>
+  <input type="button" class="selec"  value="►"><br>
+  </div>
+  <div class="rightb1">
+  <input type="button" class="selec" value="►" id="btnotras" onclick="continuar()"><br>
+  <input type="button" class="selec"  value="◄"><br>
+  <input type="button" class="selec"  value="◄" onclick="cancelada4()"><br> 
+  </div>
+  <section id="front"> 
+    <h2>INGRESE MONTO A RETIRAR</h2><br>
+    <h2>MULTIPLOS DE 10</h2><br><br>
+    <input type="number" name="monto" id="idmonto">
+  <div id="menuright2">
+    <h3>CONFIRMAR◄</h3><br>
+    <h3>CORREGIR◄</h3><br>
+    <h3>CANCELAR◄</h3><br>
+      </div>
+    
+  </section>
+
+  <div id="number">
+  <input type="button" class="numbers"  value="1">
+  <input type="button" class="numbers"  value="2">
+  <input type="button" class="numbers"  value="3"><br>
+  <input type="button" class="numbers"  value="4">
+  <input type="button" class="numbers"  value="5">
+  <input type="button" class="numbers"  value="6"><br>
+  <input type="button" class="numbers"  value="7">
+  <input type="button" class="numbers"  value="8">
+  <input type="button" class="numbers"  value="9"><br>
+  <input type="button" class="numbers"  value="  ">
+  <input type="button" class="numbers"  value="0">
+  <input type="button" class="numbers"  value=". ">
+
+  </div>
+  <div id="opera">
+    <input type="button" class="operacion"  value="CANCEL" id="cancel" onclick="cancelada4()"><br>
+  <input type="button" class="operacion"  value="CLEAR" id="clear"><br>
+  <input type="button" class="operacion"  value="OK" id="ok"><br>
+  <input type="button" class="operacion"  value="" id="none">
+  </div>
+
+  <div id="acti">
+  <p id="card">CARD </p>
+  <code class="example">
+    <hr color="363636">
+  </code>
+  <p id="nesio">RECEIPT</p>
+  <code class="example3">
+    <hr color="363636">
+  </code>
+  <p id="receipt">CASH  </p>
+  <code class="example2">
+    <hr color="363636">
+  </code>
+  <p id="depo ">DEPOSIT</p>
+  <code class="example2">
+    <hr color="363636">
+  </code>
+  
+  </div>
+</div>
+
+<!--------------------------------------
+----------END OTRAS--------------------
+---------------------------------------->
+
+<!--------------------------------------
+----------CONTINUAR--------------------
+---------------------------------------->
+<div class="tab"  id="tabcontinuar" style="display: none;">
+  <div class="leftb1">
+  <input type="button" class="selec" value="►"><br>
+  <input type="button" class="selec"  value="►"><br>
+  <input type="button" class="selec"  value="►"><br>
+  </div>
+  <div class="rightb1">
+  <input type="button" class="selec" value="►"><br>
+  <input type="button" class="selec" value="►" id="btnotras" onclick="si()"><br>
+  <input type="button" class="selec" value="►" id="btnotras" onclick="no()"><br>
+  </div>
+  <section id="front"> 
+    <h2>TRANSACCION TERMNINADA</h2><br>
+    <h2>¿DESEA REALIZAR OTRA TRANSACCION?</h2><br><br>
+  <div id="menuright2">
+    <h3></h3><br>
+    <h3>SI◄</h3><br>
+    <h3>NO◄</h3><br>
+      </div>
+    
+  </section>
+
+  <div id="number">
+  <input type="button" class="numbers"  value="1">
+  <input type="button" class="numbers"  value="2">
+  <input type="button" class="numbers"  value="3"><br>
+  <input type="button" class="numbers"  value="4">
+  <input type="button" class="numbers"  value="5">
+  <input type="button" class="numbers"  value="6"><br>
+  <input type="button" class="numbers"  value="7">
+  <input type="button" class="numbers"  value="8">
+  <input type="button" class="numbers"  value="9"><br>
+  <input type="button" class="numbers"  value="  ">
+  <input type="button" class="numbers"  value="0">
+  <input type="button" class="numbers"  value=". ">
+
+  </div>
+  <div id="opera">
+    <input type="button" class="operacion"  value="CANCEL" id="cancel" onclick="cancelada5()"><br>
+  <input type="button" class="operacion"  value="CLEAR" id="clear"><br>
+  <input type="button" class="operacion"  value="OK" id="ok"><br>
+  <input type="button" class="operacion"  value="" id="none">
+  </div>
+
+  <div id="acti">
+  <p id="card">CARD </p>
+  <code class="example">
+    <hr color="363636">
+  </code>
+  <p id="nesio">RECEIPT</p>
+  <code class="example3">
+    <hr color="363636">
+  </code>
+  <p id="receipt">CASH  </p>
+  <code class="example2">
+    <hr color="363636">
+  </code>
+  <p id="depo ">DEPOSIT</p>
+  <code class="example2">
+    <hr color="363636">
+  </code>
+  
+  </div>
+</div>
+
+<!--------------------------------------
+----------END CONTINUAR--------------------
+---------------------------------------->
+
+
+<!--------------------------------------
+----------NO CONTINUAR--------------------
+---------------------------------------->
+<div class="tab"  id="tabno" style="display: none;">
+  <div class="leftb1">
+  <input type="button" class="selec" value="►"><br>
+  <input type="button" class="selec"  value="►"><br>
+  <input type="button" class="selec"  value="►"><br>
+  </div>
+  <div class="rightb1">
+  <input type="button" class="selec" value="►"><br>
+  <input type="button" class="selec" value="►" id="btnotras" onclick="si()"><br>
+  <input type="button" class="selec" value="►" id="btnotras" onclick="no()"><br>
+  </div>
+  <section id="front"> 
+    <br><br><br>
+    <h2>GRACIAS,</h2><br>
+    <h2>HASTA LUEGO</h2><br><br>
+  </section>
+
+  <div id="number">
+  <input type="button" class="numbers"  value="1">
+  <input type="button" class="numbers"  value="2">
+  <input type="button" class="numbers"  value="3"><br>
+  <input type="button" class="numbers"  value="4">
+  <input type="button" class="numbers"  value="5">
+  <input type="button" class="numbers"  value="6"><br>
+  <input type="button" class="numbers"  value="7">
+  <input type="button" class="numbers"  value="8">
+  <input type="button" class="numbers"  value="9"><br>
+  <input type="button" class="numbers"  value="  ">
+  <input type="button" class="numbers"  value="0">
+  <input type="button" class="numbers"  value=". ">
+
+  </div>
+  <div id="opera">
+    <input type="button" class="operacion"  value="CANCEL" id="cancel" onclick="cancelada6()"><br>
+  <input type="button" class="operacion"  value="CLEAR" id="clear"><br>
+  <input type="button" class="operacion"  value="OK" id="ok"><br>
+  <input type="button" class="operacion"  value="" id="none">
+  </div>
+
+  <div id="acti">
+  <p id="card">CARD </p>
+  <code class="example">
+    <hr color="363636">
+  </code>
+  <p id="nesio">RECEIPT</p>
+  <code class="example3">
+    <hr color="363636">
+  </code>
+  <p id="receipt">CASH  </p>
+  <code class="example2">
+    <hr color="363636">
+  </code>
+  <p id="depo ">DEPOSIT</p>
+  <code class="example2">
+    <hr color="363636">
+  </code>
+  
+  </div>
+</div>
+
+<!--------------------------------------
+----------END NO--------------------
+---------------------------------------->
+
+<!--------------------------------------
+----------CANCELAR--------------------
+---------------------------------------->
+<div class="tab"  id="cancelada" style="display: none;">
+  <div class="leftb1">
+  <input type="button" class="selec" value="►"><br>
+  <input type="button" class="selec"  value="►"><br>
+  <input type="button" class="selec"  value="►"><br>
+  </div>
+  <div class="rightb1">
+  <input type="button" class="selec" value="►"><br>
+  <input type="button" class="selec" value="►" id="btnotras" onclick="si()"><br>
+  <input type="button" class="selec" value="►" id="btnotras" onclick="no()"><br>
+  </div>
+  <section id="front"> 
+    <br><br><br>
+    <h2>TRANSACCION,</h2><br>
+    <h2>CANCELADA</h2><br><br>
+  </section>
+
+  <div id="number">
+  <input type="button" class="numbers"  value="1">
+  <input type="button" class="numbers"  value="2">
+  <input type="button" class="numbers"  value="3"><br>
+  <input type="button" class="numbers"  value="4">
+  <input type="button" class="numbers"  value="5">
+  <input type="button" class="numbers"  value="6"><br>
+  <input type="button" class="numbers"  value="7">
+  <input type="button" class="numbers"  value="8">
+  <input type="button" class="numbers"  value="9"><br>
+  <input type="button" class="numbers"  value="  ">
+  <input type="button" class="numbers"  value="0">
+  <input type="button" class="numbers"  value=". ">
+
+  </div>
+  <div id="opera">
+  <input type="button" class="operacion"  value="CANCEL" id="cancel"><br>
+  <input type="button" class="operacion"  value="CLEAR" id="clear"><br>
+  <input type="button" class="operacion"  value="OK" id="ok"><br>
+  <input type="button" class="operacion"  value="" id="none">
+  </div>
+
+  <div id="acti">
+  <p id="card">CARD </p>
+  <code class="example">
+    <hr color="363636">
+  </code>
+  <p id="nesio">RECEIPT</p>
+  <code class="example3">
+    <hr color="363636">
+  </code>
+  <p id="receipt">CASH  </p>
+  <code class="example2">
+    <hr color="363636">
+  </code>
+  <p id="depo ">DEPOSIT</p>
+  <code class="example2">
+    <hr color="363636">
+  </code>
+  
+  </div>
+</div>
+
+<!--------------------------------------
+----------END CANCELAR--------------------
+---------------------------------------->
+
+
+<script src="js/script.js"></script>
+</body>
+</html>
+
